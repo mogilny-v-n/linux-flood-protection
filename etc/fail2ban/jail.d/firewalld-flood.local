@@ -1,0 +1,24 @@
+[firewalld-flood]
+
+enabled  = true
+filter   = firewalld-flood
+backend  = systemd
+
+# Ban time
+bantime  = 1d
+
+# Check the last 10 minutes
+findtime = 10m
+
+# Ban after 1 event
+maxretry = 5
+
+# Use firewalld to block IP
+banaction = firewallcmd-rich-rules
+
+# Optional: only ban public IPs
+# Ignore your trusted IPs
+ignoreip = 127.0.0.1/8 ::1 10.0.0.0/8 192.168.0.0/16
+
+# Log location is not required with systemd backend
+
